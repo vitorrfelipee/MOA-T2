@@ -1,0 +1,16 @@
+Heuristica Playlist:
+Esta heuristica e baseada na ideia de criar uma playlist de msusicas, onde cada musica tem um valor associado
+(representando sua utilidade) e um peso associado (representando a capacidade que ela ocupa na playlist). A heuristica
+ordena as musicas pela relacao utilidade/peso e seleciona as musicas mais "valiosas" ate que a capacidade maxima da
+playlist seja atingida.
+
+Resultados:
+Valor de n: 165
+Itens selecionados:
+Item: 0, Peso: 23, Utilidade: 92
+Item: 1, Peso: 31, Utilidade: 57
+Item: 2, Peso: 29, Utilidade: 49
+Item: 3, Peso: 44, Utilidade: 68
+Item: 5, Peso: 38, Utilidade: 43
+Peso carregado: 165
+Utilidade total: 309
