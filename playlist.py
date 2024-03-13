@@ -7,9 +7,9 @@ def heuristica_playlist():
     Heurística Playlist:
 
     Esta heurística é baseada na ideia de criar uma playlist de músicas, onde cada música tem um valor associado
-    (representando sua utilidade) e um peso associado (representando a capacidade que ela ocupa na mochila). A heurística
+    (representando sua utilidade) e um peso associado (representando a capacidade que ela ocupa na playlist). A heurística
     ordena as músicas pela relação utilidade/peso e seleciona as músicas mais "valiosas" até que a capacidade máxima da
-    mochila seja atingida.
+    playlist seja atingida.
     """
     pass
 
@@ -36,7 +36,7 @@ def borsa(arquivo, n):
         relacao_utilidade_peso.sort(reverse=True)
 
         # Adiciona itens à mochila até que a capacidade seja excedida
-        for utilidade_peso, indice in relacao_utilidade_peso:
+        for indice in relacao_utilidade_peso:
             if peso_total + pesos[indice] <= capacidade:
                 itens_selecionados.append((indice, pesos[indice], utilidades[indice]))
                 peso_total += pesos[indice]
@@ -54,7 +54,7 @@ def borsa(arquivo, n):
     arquivo_saida = arquivo.replace(".txt", "_results.txt")
     with open(arquivo_saida, 'w') as f:
         f.write("Heuristica Playlist:\n")
-        f.write("Esta heuristica e baseada na ideia de criar uma playlist de msusicas, onde cada musica tem um valor associado\n")
+        f.write("Esta heuristica e baseada na ideia de criar uma playlist de musicas, onde cada musica tem um valor associado\n")
         f.write("(representando sua utilidade) e um peso associado (representando a capacidade que ela ocupa na playlist). A heuristica\n")
         f.write("ordena as musicas pela relacao utilidade/peso e seleciona as musicas mais \"valiosas\" ate que a capacidade maxima da\n")
         f.write("playlist seja atingida.\n\n")
@@ -72,7 +72,7 @@ def selecionar_arquivo():
     arquivo_entrada = filedialog.askopenfilename(filetypes=[("Arquivos de texto", "*.txt")])
     if arquivo_entrada:
         try:
-            pesos, utilidades, capacidade_mochila = ler_dados(arquivo_entrada)
+            capacidade_mochila = ler_dados(arquivo_entrada)
             borsa(arquivo_entrada, capacidade_mochila)
         except Exception as e:
             messagebox.showerror("Erro", f"Ocorreu um erro ao processar o arquivo: {e}")
