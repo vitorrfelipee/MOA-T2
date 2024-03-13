@@ -36,7 +36,7 @@ def borsa(arquivo, n):
         relacao_utilidade_peso.sort(reverse=True)
 
         # Adiciona itens à mochila até que a capacidade seja excedida
-        for indice in relacao_utilidade_peso:
+        for utilidade_peso, indice in relacao_utilidade_peso:
             if peso_total + pesos[indice] <= capacidade:
                 itens_selecionados.append((indice, pesos[indice], utilidades[indice]))
                 peso_total += pesos[indice]
@@ -72,7 +72,7 @@ def selecionar_arquivo():
     arquivo_entrada = filedialog.askopenfilename(filetypes=[("Arquivos de texto", "*.txt")])
     if arquivo_entrada:
         try:
-            capacidade_mochila = ler_dados(arquivo_entrada)
+            pesos, utilidades, capacidade_mochila = ler_dados(arquivo_entrada)
             borsa(arquivo_entrada, capacidade_mochila)
         except Exception as e:
             messagebox.showerror("Erro", f"Ocorreu um erro ao processar o arquivo: {e}")
